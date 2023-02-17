@@ -9,15 +9,14 @@ let running = true;
 let num = 0;
 
 function trafficLight(count){
-    let middleCount = count + 5
+    let yelCount = count;
+    let middleCount = count + yelCount;
     let finalCount = middleCount + count;
-    let extraCount = finalCount + 5;
+    let extraCount = finalCount + yelCount;
 
-    
         setInterval(() => {
-            if(running){
+           if(running){
             ++num;
-            console.log(num);
            if( num <= count){
             yellow.style.backgroundColor = "inherit";
             green.style.backgroundColor = "#00FF00";
@@ -30,12 +29,13 @@ function trafficLight(count){
            }else if(num > finalCount && num  <= extraCount){
             red.style.backgroundColor = "inherit";
             yellow.style.backgroundColor = "#FFFF00";
-            }else if(num > extraCount){
-                num = 0;
+            }else{
+             num = 0;
+             yellow.style.backgroundColor = "inherit";
+             green.style.backgroundColor = "#00FF00";
             }
           }
-        }, 1000);
-    
+        }, 1000);   
 } 
 
 enter.addEventListener("click", function(){
